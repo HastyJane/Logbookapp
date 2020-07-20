@@ -1,37 +1,43 @@
 package life.equester.logbookapp2.models;
 
-
+import javax.persistence.Basic;
 import javax.persistence.Entity;
-import java.time.LocalDateTime;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 
 @Entity
 public class Snippet extends AbstractEntity {
 
-private String snippet;
-private LocalDateTime timeStamp;
+    private String textEntry;
+
+    @Basic
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timestamp;
+
 
     public Snippet() {
 
     }
 
-    public Snippet(String snippet, LocalDateTime timeStamp) {
-        this.snippet = snippet;
-        this.timeStamp = timeStamp;
+    public Snippet(String textEntry, Date timestamp) {
+        this.textEntry = textEntry;
+        this.timestamp = timestamp;
     }
 
-    public String getSnippet() {
-        return snippet;
+    public String getTextEntry() {
+        return textEntry;
     }
 
-    public void setSnippet(String snippet) {
-        this.snippet = snippet;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public LocalDateTime getTimeStamp() {
-        return timeStamp;
+    public void setTextEntry(String textEntry) {
+        this.textEntry = textEntry;
     }
 
-    public void setTimeStamp(LocalDateTime timeStamp) {
-        this.timeStamp = timeStamp;
+    public Date getTimestamp() {
+        return timestamp;
     }
 }
