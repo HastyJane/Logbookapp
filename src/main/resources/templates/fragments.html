@@ -13,9 +13,19 @@
 
 <body>
 
-<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
+
+<div class="topnav">
+    <a class="active" href="@{/}">Home</a>
+    <a href="@{/add}">Add Entry</a>
+    <a href="@{/logout}">Logout</a>
+
+</div>
+
+
+<div th:fragment="page-header" class="topnav">
+
+    <div class="topnav">
+        <div class="topnav-header">
             <a th:href="@{/}" class="navbar-brand">Log Book</a>
         </div>
         <div class="navbar-collapse collapse">

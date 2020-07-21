@@ -3,17 +3,20 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
-<h1 th:text="${'Job: ' + job.name}">Default Title</h1>
-
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="job-listing">
-    <p th:text="${'ID: ' + job.id}"></p>
-    <p th:text="${'Name: ' + job.name}"></p>
-    <p th:text="${'Employer: ' + job.employer}"></p>
-    <p th:text="${'Skill: ' + job.skill}"></p>
-</div>
+<h1>Make an Entry</h1>
 
+
+
+<div class="job-listing">
+    <th:block th:each ="snippet : ${snippetRepository.}">
+        <p th:text="${'Entry: ' + snippet.textEntry}"></p>
+        <p th:text="${'Time: ' + snippet.timeStamp}"></p>
+    </th:block>
+
+
+</div>
 
 </body>
 </html>

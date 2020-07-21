@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Controller
 public class HomeController {
@@ -21,13 +22,17 @@ public class HomeController {
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("snippets", snippetRepository.findAll());
+
         return "index";
     }
 
     @RequestMapping("add")
     public String displayAddSnippetForm(Model model) {
         model.addAttribute(new Snippet());
+        Date today = new Date();
+        Integer millisecondsInDay = 24 * 60 * 60 * 1000;
+        Date yesterday = new Date(today.getTime() - millisecondsInDay);
+        model.addAttribute("snippets", snippetRepository.findByTimeStampBetween(yesterday, today));
         return "add";
     }
 
@@ -39,9 +44,9 @@ public class HomeController {
             return "add";
         }
         Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-        newSnippet.setTimestamp(currentTime);
+        newSnippet.setTimeStamp(currentTime);
         snippetRepository.save(newSnippet);
 
-        return "redirect:";
+        return "add";
     }
 }

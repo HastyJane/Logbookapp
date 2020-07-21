@@ -1,10 +1,9 @@
 package life.equester.logbookapp2.models;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Snippet extends AbstractEntity {
@@ -13,31 +12,33 @@ public class Snippet extends AbstractEntity {
 
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
-    private Date timestamp;
+    private Date timeStamp;
 
+    @OneToMany
+    private List<Snippet> snippets =new ArrayList<Snippet>();
 
     public Snippet() {
 
     }
 
-    public Snippet(String textEntry, Date timestamp) {
+    public Snippet(String textEntry, Date timeStamp) {
         this.textEntry = textEntry;
-        this.timestamp = timestamp;
+        this.timeStamp = timeStamp;
     }
 
     public String getTextEntry() {
         return textEntry;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public void setTextEntry(String textEntry) {
         this.textEntry = textEntry;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
+    public Date getTimeStamp() {
+        return timeStamp;
     }
 }
