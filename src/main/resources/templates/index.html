@@ -11,7 +11,7 @@
     <ul>
         <li th:if="${#lists.size(snippets)}" th:each="snippet : ${snippets}">
             <a th:text="${snippet.textEntry}"></a>
-            <a th:text="${snippet.timeStamp}"></a>
+          <!---  <a th:text="${snippet.timeStamp}"></a> --->
         </li>
     </ul>
 
