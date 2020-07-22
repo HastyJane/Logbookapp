@@ -10,6 +10,7 @@ import java.util.List;
 
 
 @Repository
+@Transactional
 public interface SnippetRepository extends CrudRepository<Snippet, Integer> {
     List<Snippet> findByTimeStampBetween(Date start, Date end);
 }
