@@ -22,17 +22,20 @@ public class HomeController {
 
     @RequestMapping("")
     public String index(Model model) {
-
+        Date today = new Date();
+        Integer millisecondsInDay = 24 * 60 * 60 * 1000;
+        Date yesterday = new Date(today.getTime() - millisecondsInDay);
+        model.addAttribute("snippets", snippetRepository.findByTimeStampBetween(yesterday, today));
+        //model.addAttribute("snippets", snippetRepository.findAll());
         return "index";
     }
 
     @RequestMapping("add")
     public String displayAddSnippetForm(Model model) {
+        SnippetRepository snippets;
         model.addAttribute(new Snippet());
-        Date today = new Date();
-        Integer millisecondsInDay = 24 * 60 * 60 * 1000;
-        Date yesterday = new Date(today.getTime() - millisecondsInDay);
-        model.addAttribute("snippets", snippetRepository.findByTimeStampBetween(yesterday, today));
+
+
         return "add";
     }
 
@@ -47,6 +50,6 @@ public class HomeController {
         newSnippet.setTimeStamp(currentTime);
         snippetRepository.save(newSnippet);
 
-        return "add";
+        return "redirect:";
     }
 }

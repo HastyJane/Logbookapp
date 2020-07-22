@@ -17,14 +17,15 @@
     <input type="submit" value="Save Entry" />
 </form>
 
-
 <div class="job-listing">
-    <p th:block th:each="textEntry : ${snippets}">
-
-    <p th:text="${'Entry: ' + snippet.textEntry}"></p>
-    <p th:text="${'Time: ' + snippet.timeStamp}"></p>
+    <p th:if="${#lists.size(snippets)}" th:each="snippet : ${snippets}">
+    <p th:text="${snippet.textEntry}"></p>
+    <p th:text="${snippet.timeStamp}"></p>
     </p>
 </div>
+
+
+
 
 
 

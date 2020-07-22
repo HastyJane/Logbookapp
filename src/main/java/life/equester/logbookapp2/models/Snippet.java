@@ -14,8 +14,8 @@ public class Snippet extends AbstractEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeStamp;
 
-    @OneToMany
-    private List<Snippet> snippets =new ArrayList<Snippet>();
+
+
 
     public Snippet() {
 
