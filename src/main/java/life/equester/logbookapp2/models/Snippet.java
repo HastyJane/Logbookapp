@@ -1,6 +1,7 @@
 package life.equester.logbookapp2.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 public class Snippet extends AbstractEntity {
-
+    @NotBlank
     @Size(max = 255)
     private String textEntry;
 

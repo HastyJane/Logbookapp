@@ -2,20 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
 </head>
+
+
+
 <body>
-
-<div th:replace="fragments :: page-header"></div>
-
-<div class="container body-content">
-    <h2>Log</h2>
-    <ul>
-        <li th:if="${#lists.size(snippets)}" th:each="snippet : ${snippets}">
-            <a th:text="${snippet.textEntry}"></a>
-          <!---  <a th:text="${snippet.timeStamp}"></a> --->
-        </li>
-    </ul>
-
-</div>
-
+    <nav th:replace="fragments :: page-header"></nav>
+    <div class="container body-content">
+        <h2>Log</h2>
+        <ul>
+            <li th:if="${#lists.size(snippets)}" th:each="snippet : ${snippets}">
+                <a th:text="${snippet.textEntry}"></a>
+              <!---  <a th:text="${snippet.timeStamp}"></a> --->
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
