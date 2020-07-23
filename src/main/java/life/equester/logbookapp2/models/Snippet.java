@@ -3,6 +3,7 @@ package life.equester.logbookapp2.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,10 @@ public class Snippet extends AbstractEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeStamp;
 
-
+    public String getFormattedDate() {
+        String s = new SimpleDateFormat("hh:mm a MM/dd/yyyy ").format(timeStamp);
+        return s;
+    }
 
 
     public Snippet() {

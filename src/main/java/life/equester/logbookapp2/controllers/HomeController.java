@@ -25,6 +25,8 @@ public class HomeController {
         Date today = new Date();
         Integer millisecondsInDay = 24 * 60 * 60 * 1000;
         Date yesterday = new Date(today.getTime() - millisecondsInDay);
+        System.out.println(yesterday);
+        System.out.println(today);
         model.addAttribute("snippets", snippetRepository.findByTimeStampBetweenOrderByTimeStampDesc(yesterday, today));
         //model.addAttribute("snippets", snippetRepository.findAll());
         return "index";
