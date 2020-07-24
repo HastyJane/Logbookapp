@@ -19,8 +19,8 @@ public class User extends AbstractEntity {
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    @OneToMany(mappedBy = "snippet")
-    private List<Snippet> jobs =new ArrayList<Snippet>();
+    @OneToMany(mappedBy = "user")
+    private List<Snippet> snippets =new ArrayList<Snippet>();
 
     public User() {}
 

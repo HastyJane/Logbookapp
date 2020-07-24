@@ -26,6 +26,12 @@ public class Snippet extends AbstractEntity {
     @ManyToOne
     private User user;
 
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
     public Snippet() {
 
     }
