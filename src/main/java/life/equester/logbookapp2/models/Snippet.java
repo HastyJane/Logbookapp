@@ -23,6 +23,8 @@ public class Snippet extends AbstractEntity {
         return s;
     }
 
+    @ManyToOne
+    private User user;
 
     public Snippet() {
 
