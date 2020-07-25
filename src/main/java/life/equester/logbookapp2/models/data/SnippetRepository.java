@@ -14,6 +14,5 @@ import java.util.List;
 @Transactional
 public interface SnippetRepository extends CrudRepository<Snippet, Integer> {
     List<Snippet> findByTimeStampBetweenAndUserIdOrderByTimeStampDesc(Date start, Date end, int userId);
-
     List<Object> findAllById(int userId);
 }
